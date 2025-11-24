@@ -1,10 +1,11 @@
 
-inventary = [{"nombre del producto" : "Computador" , "marca" : "lenovo" , "categoría" : "portatiles" , "precio unitario" : 1500000 , "cantidad en stock": 10 , "garantía en meses" : 12},
-              {"nombre del producto" : "Televisor" , "marca" : "LG" , "categoría" : "electrodoméstico" , "precio unitario" : 5500000 , "cantidad en stock": 15 , "garantía en meses" : 12},
-              {"nombre del producto" : "Lavadora" , "marca" : "Haceb" , "categoría" : "electrodoméstico" , "precio unitario" : 240000 , "cantidad en stock": 2 , "garantía en meses" : 13},
-              {"nombre del producto" : "Licuadora" , "marca" : "imusa" , "categoría" : "electrodoméstico" , "precio unitario" : 150000 , "cantidad en stock": 10 , "garantía en meses" : 12},
-              {"nombre del producto" : "Celular" , "marca" : "iphone" , "categoría" : "movil" ,"precio unitario" : 5500000 , "cantidad en stock": 40 , "garantía en meses" : 24}
-              ]
+inventory = [
+    {"nombre del producto" : "Computador" , "marca" : "lenovo" , "categoría" : "portatiles" , "precio unitario" : 1500000 , "cantidad en stock": 10 , "garantía en meses" : 12},
+    {"nombre del producto" : "Televisor" , "marca" : "LG" , "categoría" : "electrodoméstico" , "precio unitario" : 5500000 , "cantidad en stock": 15 , "garantía en meses" : 12},
+    {"nombre del producto" : "Lavadora" , "marca" : "Haceb" , "categoría" : "electrodoméstico" , "precio unitario" : 240000 , "cantidad en stock": 2 , "garantía en meses" : 13},
+    {"nombre del producto" : "Licuadora" , "marca" : "imusa" , "categoría" : "electrodoméstico" , "precio unitario" : 150000 , "cantidad en stock": 10 , "garantía en meses" : 12},
+    {"nombre del producto" : "Celular" , "marca" : "iphone" , "categoría" : "movil" ,"precio unitario" : 5500000 , "cantidad en stock": 40 , "garantía en meses" : 24}
+]
 
 
 def add_product() :
@@ -98,10 +99,10 @@ def add_product() :
         "garantía en meses" : warranty
         }
 
-    inventary.append(product)
+    inventory.append(product)
 
-def view_product(inventary):
-    for item in inventary:
+def view_product(inventory):
+    for item in inventory:
         print(item)
 
     while True:
@@ -115,7 +116,7 @@ def view_product(inventary):
             continue
         break
 
-    for item in inventary:
+    for item in inventory:
         if item['nombre del producto'].lower() == product_name:
             print(f"\nProduct name: {item['nombre del producto']} | Brand: {item['marca']} | "
                   f"Category: {item['categoría']} | Unit price: {item['precio unitario']} | "
@@ -125,7 +126,7 @@ def view_product(inventary):
         print("\nNo product found with that name")
     return
 
-def update_products(inventary) :
+def update_products(inventory) :
 
     while True:
         search_product = input("\nEnter the name of the product you are looking for: ")
@@ -138,7 +139,7 @@ def update_products(inventary) :
             continue
         break
 
-    for item in inventary:
+    for item in inventory:
 
         if item['nombre del producto'].lower() == search_product.lower():
         # New price
@@ -171,7 +172,7 @@ def update_products(inventary) :
     print("No se encontró el producto.\n")
 
 
-def eliminar_producto(inventary, name = None):
+def eliminar_producto(inventory, name = None):
 
     while True:
         if not name:
@@ -185,9 +186,9 @@ def eliminar_producto(inventary, name = None):
         break  # Nombre válido, salir del bucle
 
     # Buscar y eliminar
-    for item in inventary:
+    for item in inventory:
         if item['nombre del producto'].lower() == name.lower():
-            inventary.remove(item)
+            inventory.remove(item)
             print(f"El producto '{item['nombre del producto']}' se eliminó correctamente.\n")
             return
     print("No se encontró el producto.\n")

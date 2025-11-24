@@ -1,5 +1,7 @@
 from gestion_inventario import * 
 from registro_y_consulta_ventas import *
+from reportes import generar_reportes
+
 
 while True: 
 
@@ -31,6 +33,8 @@ while True:
                 eliminar_producto(inventary, name = None)
             case 5:
                 sales_menu()
+            case 6:
+                generar_reportes()
             case _:
                 print("invalid option")
 
